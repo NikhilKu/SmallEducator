@@ -1,0 +1,29 @@
+{
+  "name": "barberplanning-backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "sequelize-skeleton": "node_modules/sequelize-cli/lib/sequelize init:config; node_modules/sequelize-cli/lib/sequelize init:models"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "http-errors": "~1.6.2",
+    "joi": "^14.3.1",
+    "morgan": "~1.9.0",
+    "mysql2": "^1.6.5",
+    "pg-promise": "^8.6.2",
+    "sequelize": "^4.43.0"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "lodash.random": "^3.2.0",
+    "lodash.times": "^4.3.2",
+    "nodemon": "^1.18.10",
+    "sequelize-cli": "^5.4.0"
+  }
+}

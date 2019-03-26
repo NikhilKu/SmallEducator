@@ -1,0 +1,30 @@
+body {
+  background: url("https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .navbar {
+    background: #ffffff;
+    .container {
+      padding: 0;
+    }
+    margin-bottom: 40px;
+  }
+
+  .container {
+    background-color: #fff;
+    padding: 30px;
+    button {
+      margin-bottom: 30px;
+      background-color: #f39c12;
+      border-color:#d35400;
+    }
+    table{
+      button{
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+
