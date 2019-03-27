@@ -18,6 +18,6 @@ Step 3: Run server
 
 
 
-NodeJS (back-end) server starts on https://localhost:3400
-ReactJS (client) server starts on https://localhost:3000
+NodeJS (back-end) server starts on http://localhost:3400/
+ReactJS (client) server starts on http://localhost:3000/
  
