@@ -15,4 +15,9 @@
 Step 1: Copy env.example in env
 Step 2: Edit to your database info
 Step 3: Run server
+
+
+
+NodeJS (back-end) server starts on https://localhost:3400
+ReactJS (client) server starts on https://localhost:3000
  
