@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import axios from "axios";
 import Alert from "react-bootstrap/Alert";
 import {BeatLoader} from "react-spinners";
 import StudentOptions from "../students/StudentOptions";
+import APIProvider from "../../provider/APIProvider";
 
 class AddStudentsToClass extends Component {
 
@@ -34,19 +34,19 @@ class AddStudentsToClass extends Component {
             isLoaded: false
         });
 
-        //Post students to the api
-        axios.post('http://localhost:3400/class/' + this.classId + "/students", (this.state))
+
+        const provider = new APIProvider();
+        provider.postData("class/"+ this.classId + "/students", this.state)
             .then(() => {
                 th.setState({
                     sent: true,
                     isLoaded: true,
                 });
                 window.location.reload();
-                this.props.history.push('/' + this.type + 's');
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+            }).catch((error) => {
+            console.log(error);
+        });
+
     };
 
     render() {

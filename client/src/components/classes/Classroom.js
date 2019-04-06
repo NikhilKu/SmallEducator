@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import Table from "react-bootstrap/Table";
-import axios from 'axios';
 import {BeatLoader} from "react-spinners";
 import ModalAddForm from "../ModalAddForm";
-import Button from "react-bootstrap/Button";
 import ModalAddGroup from "../ModalAddGroup";
+import APIProvider from "../../provider/APIProvider";
 
 //The classes page
 class Classroom extends Component {
@@ -18,7 +17,8 @@ class Classroom extends Component {
 
     //Get data from API
     fetchApi = (th) => {
-        this.serverRequest = axios.get("http://localhost:3400/classes")
+        const provider = new APIProvider();
+        this.serverRequest = provider.fetchApi("classes")
             .then((event) => {
                 th.setState({
                     cases: event.data,
@@ -43,6 +43,7 @@ class Classroom extends Component {
             <>
                 <ModalAddForm type="class"/>
                 {this.state.isLoaded ?
+                    <div className="table-responsive">
                     <Table striped bordered hover>
                         <thead>
                         <tr>
@@ -63,6 +64,7 @@ class Classroom extends Component {
 
                         </tbody>
                     </Table>
+                    </div>
                     : (
                         <BeatLoader
                             sizeUnit={"px"}

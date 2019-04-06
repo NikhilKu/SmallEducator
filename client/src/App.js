@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './style/App.scss';
 import Navigationbar from './components/navigationbar';
-import {Route, BrowserRouter, Switch} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Home from "./components/home";
 import Teacher from "./components/teachers/Teacher";
 import Course from "./components/courses/Course";

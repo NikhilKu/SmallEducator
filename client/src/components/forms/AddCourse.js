@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import axios from "axios";
 import Alert from "react-bootstrap/Alert";
 import {BeatLoader} from "react-spinners";
+import APIProvider from "../../provider/APIProvider";
 
 //Form to add user
 class AddUser extends Component {
@@ -35,19 +35,18 @@ class AddUser extends Component {
             isLoaded: false
         });
 
-        //Post data to API
-        axios.post('http://localhost:3400/' + this.userType, (this.state))
-            .then(() => {
-                th.setState({
-                    sent: true,
-                    isLoaded: true,
-                });
-                window.location.reload();
-                this.props.history.push('/' + this.userType + 's');
-            })
-            .catch((error) => {
-                console.log(error);
+        // post data to api.
+        const provider = new APIProvider();
+        provider.postData(this.userType, this.state).then(() => {
+            th.setState({
+                sent: true,
+                isLoaded: true,
             });
+            window.location.reload();
+            this.props.history.push('/' + this.userType + 's');
+        }).catch((error) => {
+            console.log(error);
+        });
     };
 
     render() {

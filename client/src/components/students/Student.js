@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Table from "react-bootstrap/Table";
-import axios from 'axios';
 import {BeatLoader} from "react-spinners";
 import ModalAddForm from "../ModalAddForm";
+import APIProvider from "../../provider/APIProvider";
 
 
 //Student page
@@ -17,7 +17,8 @@ class Student extends Component {
 
 
     fetchApi = (th) => {
-        this.serverRequest = axios.get("http://localhost:3400/students")
+        const provider = new APIProvider();
+        this.serverRequest = provider.fetchApi("students")
             .then((event) => {
                 th.setState({
                     cases: event.data,

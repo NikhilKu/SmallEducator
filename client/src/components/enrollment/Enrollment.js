@@ -1,24 +1,16 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {BeatLoader} from "react-spinners";
+import APIProvider from "../../provider/APIProvider";
 
 //The enrollment page.
 class Enrollment extends Component {
-    constructor() {
-        super();
-        this.state = {
-            cases: [],
-            isLoaded: true
-        };
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
     //Get data from API
     fetchApi = (th, key) => {
-        this.serverRequest = axios.get("http://localhost:3400/class/enroll/" + key)
+
+        const provider = new APIProvider();
+        this.serverRequest = provider.fetchApi("class/enroll/" + key)
             .then((event) => {
                 th.setState({
                     cases: event.data,
@@ -34,11 +26,6 @@ class Enrollment extends Component {
                 });
             });
     };
-
-    componentDidMount() {
-        var th = this;
-    }
-
     handleInputChange = (event) => {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -48,7 +35,6 @@ class Enrollment extends Component {
             [name]: value
         });
     };
-
     handleSubmit = () => {
         const th = this;
         th.setState({
@@ -58,6 +44,20 @@ class Enrollment extends Component {
         var key = th.state.enrollmentkey;
         this.fetchApi(this, key);
     };
+
+    constructor() {
+        super();
+        this.state = {
+            cases: [],
+            isLoaded: true
+        };
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        var th = this;
+    }
 
     render() {
         return (

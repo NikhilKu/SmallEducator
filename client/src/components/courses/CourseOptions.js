@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import {BeatLoader} from "react-spinners";
+import APIProvider from "../../provider/APIProvider";
 
 //All courses in a option field.
 class CourseOptions extends Component {
@@ -14,7 +14,8 @@ class CourseOptions extends Component {
 
     //Get data from API
     fetchApi = (th) => {
-        this.serverRequest = axios.get("http://localhost:3400/courses")
+        const provider = new APIProvider();
+        this.serverRequest = provider.fetchApi("courses")
             .then((event) => {
                 th.setState({
                     cases: event.data,

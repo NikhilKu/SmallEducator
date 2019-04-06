@@ -9,10 +9,8 @@ import AddClass from "./forms/AddClass";
 class ModalAddForm extends Component {
     constructor(props) {
         super(props);
-
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
-
 
         this.state = {
             show: false,

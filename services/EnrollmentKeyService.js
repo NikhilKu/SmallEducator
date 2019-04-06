@@ -38,6 +38,6 @@ class EnrollmentKeyService {
             }
         )
     }
-};
+}
 
 module.exports = (EnrollmentKeyService);
